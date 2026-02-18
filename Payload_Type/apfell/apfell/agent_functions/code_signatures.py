@@ -43,7 +43,7 @@ class CodeSignaturesCommand(CommandBase):
             TaskID=taskData.Task.ID,
             Success=True,
         )
-        response.DisplayParams = " for " + taskData.args.get_arg("path")
+        response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

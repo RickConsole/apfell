@@ -48,6 +48,7 @@ class PersistLoginItemAllUsersCommand(CommandBase):
             ArtifactMessage=f"$.LSSharedFileListCreate, $.LSSharedFileListSetAuthorization, $.LSSharedFileListInsertItemURL",
             BaseArtifactType="API"
         ))
+        response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\" -name \"{taskData.args.get_arg('name')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

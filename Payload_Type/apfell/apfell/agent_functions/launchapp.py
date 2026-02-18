@@ -47,6 +47,7 @@ class LaunchAppCommand(CommandBase):
             ArtifactMessage=f"xpcproxy {taskData.args.get_arg('bundle')}",
             BaseArtifactType="Process Create"
         ))
+        response.DisplayParams = f"-bundle \"{taskData.args.get_arg('bundle')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

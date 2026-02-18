@@ -14,7 +14,18 @@ class LsArguments(TaskArguments):
                 default_value=".",
                 description="Path of file or folder on the current system to list",
                 parameter_group_info=[ParameterGroupInfo(
-                    required=False
+                    required=False,
+                    ui_position=1
+                )]
+            ),
+            CommandParameter(
+                name="includeAttributes",
+                type=ParameterType.Boolean,
+                default_value=False,
+                description="Include the file's extended attributes",
+                parameter_group_info=[ParameterGroupInfo(
+                    required=False,
+                    ui_position=2
                 )]
             )
         ]
@@ -76,10 +87,11 @@ class LsCommand(CommandBase):
             BaseArtifactType="API"
         ))
         if taskData.args.has_arg("file_browser") and taskData.args.get_arg("file_browser"):
-            host = taskData.Callback.Host
-            response.DisplayParams = host + ":" + taskData.args.get_arg("path")
+            response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
         else:
-            response.DisplayParams = taskData.args.get_arg("path")
+            response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
+            if taskData.args.get_arg("includeAttributes"):
+                response.DisplayParams += " -includeAttributes"
         if taskData.args.has_arg("host"):
             taskData.args.remove_arg("host")
         return response

@@ -1,4 +1,13 @@
 
+## [v0.1.12] - 2026-02-18
+
+### Changed
+
+- Updated a bunch of commands to set DisplayParams to not have JSON blobs
+- Updated the core does_file_exist check for downloads to be fileExistsAtPath
+- Updated the `ls` command to have a new parameter, `includeAttributes`, that's `false` by default
+  - This allows you to more selectively fetch attributes and still get some data if you can't read all attribute values
+  
 ## [v0.1.11] - 2026-02-02
 
 ### Changed

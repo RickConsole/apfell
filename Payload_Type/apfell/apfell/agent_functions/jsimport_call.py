@@ -41,6 +41,7 @@ class JsimportCallCommand(CommandBase):
             TaskID=taskData.Task.ID,
             Success=True,
         )
+        response.DisplayParams = f"-command \"{taskData.args.get_arg('command')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

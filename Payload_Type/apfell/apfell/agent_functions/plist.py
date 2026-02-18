@@ -52,6 +52,7 @@ class PlistCommand(CommandBase):
             ArtifactMessage=f"$.NSMutableDictionary.alloc.initWithContentsOfFile, fileManager.attributesOfItemAtPathError",
             BaseArtifactType="API"
         ))
+        response.DisplayParams = f"-filename \"{taskData.args.get_arg('filename')}\" -type {taskData.args.get_arg('type')}"
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

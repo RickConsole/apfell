@@ -55,7 +55,7 @@ class CurrentUserCommand(CommandBase):
                 ArtifactMessage=f"NSUserName, NSFullUserName, NSHomeDirectory",
                 BaseArtifactType="API"
             ))
-
+        response.DisplayParams = f"-method {taskData.args.get_arg('method')}"
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

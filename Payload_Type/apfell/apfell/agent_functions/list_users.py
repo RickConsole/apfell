@@ -57,6 +57,7 @@ class ListUsersCommand(CommandBase):
                 ArtifactMessage=f"$.CBIdentityAuthority.defaultIdentityAuthority, $.CBGroupIdentity.groupIdentityWithPosixGIDAuthority",
                 BaseArtifactType="API"
             ))
+        response.DisplayParams = f"-gid {taskData.args.get_arg('gid')}"
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

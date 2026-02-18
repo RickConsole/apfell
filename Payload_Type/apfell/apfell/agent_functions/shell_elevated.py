@@ -115,6 +115,7 @@ WARNING! THIS IS SINGLE THREADED, IF YOUR COMMAND HANGS, THE AGENT HANGS!
             taskData.args.remove_arg("user")
             taskData.args.add_arg("credential", cred)
             taskData.args.add_arg("user", user)
+        response.DisplayParams = f"-command \"{taskData.args.get_arg('command')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

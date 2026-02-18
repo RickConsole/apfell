@@ -73,6 +73,7 @@ class RmCommand(CommandBase):
         ))
         if taskData.args.has_arg("host"):
             taskData.args.remove_arg("host")
+        response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

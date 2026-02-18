@@ -48,6 +48,9 @@ class RunCommand(CommandBase):
             ArtifactMessage=f"{taskData.args.get_arg('path')} {taskData.args.get_arg('args')}",
             BaseArtifactType="Process Create"
         ))
+        response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
+        if taskData.args.get_arg("args") and len(taskData.args.get_arg("args")) > 0:
+            response.DisplayParams += f"-args {taskData.args.get_arg('args')}"
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

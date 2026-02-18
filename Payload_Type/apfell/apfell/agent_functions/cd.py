@@ -45,6 +45,7 @@ class CdCommand(CommandBase):
             ArtifactMessage=f"fileManager.changeCurrentDirectoryPath",
             BaseArtifactType="API"
         ))
+        response.DisplayParams = f"-path \"{taskData.args.get_arg('path')}\""
         return response
 
     async def process_response(self, task: PTTaskMessageAllData, response: any) -> PTTaskProcessResponseMessageResponse:

@@ -65,8 +65,7 @@ class baseC2{
 C2PROFILE_HERE
 //-------------SHARED COMMAND CODE ------------------------
 does_file_exist = function(strPath){
-    var error = $();
-    return $.NSFileManager.defaultManager.attributesOfItemAtPathError($(strPath).stringByStandardizingPath, error), error.code === undefined;
+    return $.NSFileManager.defaultManager.fileExistsAtPath($(strPath).stringByExpandingTildeInPath.stringByStandardizingPath);
 };
 convert_to_nsdata = function(strData){
     // helper function to convert UTF8 strings to NSData objects
