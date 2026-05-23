@@ -113,8 +113,8 @@ WARNING! THIS IS SINGLE THREADED, IF YOUR COMMAND HANGS, THE AGENT HANGS!
             user = taskData.args.get_arg("user")["account"]
             taskData.args.remove_arg("credential")
             taskData.args.remove_arg("user")
-            taskData.args.add_arg("credential", cred)
-            taskData.args.add_arg("user", user)
+            taskData.args.add_arg("credential", cred, parameter_group_info=[ParameterGroupInfo(group_name="manual_creds")])
+            taskData.args.add_arg("user", user, parameter_group_info=[ParameterGroupInfo(group_name="manual_creds")])
         response.DisplayParams = f"-command \"{taskData.args.get_arg('command')}\""
         return response
 
