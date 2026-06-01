@@ -412,9 +412,7 @@ class customC2 extends baseC2 {
             messageStr = raw.base64EncodedStringWithOptions(0).js;
         }
 
-        // Pick variation based on message size (same heuristic as Apollo)
-        let usePost = messageStr.length > 500;
-        let variation = this.getVariation(usePost ? "post" : "get") || this.getVariation(usePost ? "get" : "post");
+        let variation = this.getVariation("post") || this.getVariation("get");
         if (!variation) { return {}; }
 
         for (let i = 0; i < 10; i++) {
