@@ -461,7 +461,7 @@ class customC2 extends baseC2 {
             messageStr = raw.base64EncodedStringWithOptions(0).js;
         }
 
-        let variation = this.getVariation("get") || this.getVariation("post");
+        let variation = this.getVariation("post") || this.getVariation("get");
         if (!variation) { return {}; }
 
         for (let i = 0; i < 10; i++) {
