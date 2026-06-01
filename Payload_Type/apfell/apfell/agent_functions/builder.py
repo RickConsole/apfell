@@ -17,7 +17,7 @@ class Apfell(PayloadType):
     wrapped_payloads = []
     note = f"This payload uses JavaScript for Automation (JXA) for execution on macOS boxes."
     supports_dynamic_loading = True
-    c2_profiles = ["http", "dynamichttp"]
+    c2_profiles = ["http", "dynamichttp", "httpx"]
     mythic_encrypts = True
     translation_container = None
     build_parameters = []
@@ -83,6 +83,9 @@ class Apfell(PayloadType):
                                 resp.set_status(BuildStatus.Error)
                                 return resp
                             c2_code = c2_code.replace(key, configData.Content.decode())
+                        elif isinstance(val, list):
+                            # Join list values (e.g. callback_domains array) into a comma-separated string
+                            c2_code = c2_code.replace(key, ",".join(str(v) for v in val))
                         elif not isinstance(val, str):
                             c2_code = c2_code.replace(key, json.dumps(val))
                         else:
