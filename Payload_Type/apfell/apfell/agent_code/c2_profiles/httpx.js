@@ -1,20 +1,4 @@
 //-------------HTTPX C2 profile for apfell (JXA) ---------------------------------
-// Parameters stamped in by builder:
-//   raw_c2_config          -> malleable JSON profile object literal
-//   callback_interval      -> number (seconds)
-//   callback_jitter        -> number (percent)
-//   callback_domains       -> string "https://d1:443,https://d2:443"
-//   domain_rotation        -> string "fail-over"|"round-robin"|"random"
-//   failover_threshold     -> number
-//   AESPSK                 -> base64 AES key string
-//   encrypted_exchange_check -> "true"|"false"
-//   killdate               -> "yyyy-mm-dd"
-//   proxy_host             -> string
-//   proxy_port             -> number
-//   proxy_user             -> string
-//   proxy_pass             -> string
-//   domain_front           -> string (Host header override)
-//   timeout                -> number (seconds, unused in NSURLSession but kept for parity)
 
 class customC2 extends baseC2 {
     constructor(interval, baseurl) {
