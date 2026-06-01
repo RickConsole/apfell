@@ -242,7 +242,7 @@ class customC2 extends baseC2 {
         final_message.appendData(IV);
         final_message.appendData(encryptedData);
         final_message.appendData(hmac_data);
-        return final_message.base64EncodedStringWithOptions(0);
+        return final_message.base64EncodedStringWithOptions(0).js;
     }
 
     decrypt_message(nsdata) {
