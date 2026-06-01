@@ -22,7 +22,7 @@ class customC2 extends baseC2 {
         this.proxyPort = parseInt("proxy_port") || 0;
         this.proxyUser = "proxy_user";
         this.proxyPass = "proxy_pass";
-        this.domainFront = "domain_front";
+        this.domainFront = ("domain_front" === "domain_front") ? "" : "domain_front";
 
         this.proxy_dict = {};
         if (this.proxyHost !== "") {
