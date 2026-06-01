@@ -4,7 +4,7 @@ class customC2 extends baseC2 {
     constructor(interval, baseurl) {
         super(interval, baseurl);
 
-        // Malleable config: raw_c2_config is replaced with a JSON object literal by the builder
+        // Malleable config object stamped in by the builder
         this.config = raw_c2_config;
 
         // Multiple callback domains
